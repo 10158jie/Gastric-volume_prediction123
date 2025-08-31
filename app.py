@@ -28,8 +28,8 @@ if st.button("Predicted gastric volume"):
     st.success(f"Predicted gastric volume：{pred_volume:.1f} mL")
 
     # 个体化风险分层阈值
-    medium_high_threshold = max(50, 0.8 * weight)
-    high_threshold = max(100, 1.5 * weight)
+    medium_high_threshold = min(50, 0.8 * weight)
+    high_threshold = min(100, 1.5 * weight)
 
     # 风险提示
     if pred_volume >= high_threshold:
@@ -39,3 +39,4 @@ if st.button("Predicted gastric volume"):
     else:
         st.info("✅ Low aspiration risk")
         
+
